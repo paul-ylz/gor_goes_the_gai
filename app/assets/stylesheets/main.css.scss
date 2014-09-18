@@ -1,0 +1,80 @@
+// Variables
+$consonant_width: 80px;
+$consonants_per_line: 11;
+$consonant_margin: 1px;
+$blue: #7ca4e5;
+$brown: #792c02;
+$light_orange: #f39500;
+$bold_orange: #ee5400;
+$beige: #e6bd7c;
+$app_width: $consonant_width * $consonants_per_line + $consonants_per_line * $consonant_margin * 2;
+$bucket_margin: 1px;
+$bucket_width: ($app_width - 15) / 3;
+// Everything else
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  background: white;
+}
+
+#container {
+  min-width: 640px;
+}
+
+header {
+  width: 792px;
+  margin: 0 auto 20px auto;
+  border-bottom: 1px solid $bold_orange;
+}
+
+section {
+  clear: both;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: arial;
+  text-align: center;
+  color: $bold_orange;
+  margin: 0;
+}
+
+#unsorted_consonants, #buckets {
+  width: $app_width;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+}
+
+.consonant {
+  float: left;
+  box-sizing: border-box;
+  margin: $consonant_margin;
+  width: $consonant_width;
+  height: $consonant_width;
+  line-height: $consonant_width;
+  background: $blue;
+  color: $brown;
+  border: 1px solid $beige;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px $beige;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.bucket {
+  box-sizing: border-box;
+  width: $bucket_width;
+  height: 150px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px $brown;
+  line-height: 150px;
+  display: inline-block;
+  margin: $bucket_margin;
+  background: $beige;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  color: $brown;
+  text-align: center;
+  position: relative
+}

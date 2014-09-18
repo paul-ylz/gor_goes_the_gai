@@ -11,22 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917151641) do
+ActiveRecord::Schema.define(version: 20140918072352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alphabets", force: true do |t|
-    t.string "alphabet", null: false
-  end
-
-  add_index "alphabets", ["alphabet"], name: "index_alphabets_on_alphabet", unique: true, using: :btree
-
   create_table "consonants", force: true do |t|
-    t.integer "alphabet_id",     null: false
-    t.string  "consonant_class", null: false
+    t.string "char",       null: false
+    t.string "char_class", null: false
   end
-
-  add_index "consonants", ["alphabet_id", "consonant_class"], name: "index_consonants_on_alphabet_id_and_consonant_class", unique: true, using: :btree
 
 end
