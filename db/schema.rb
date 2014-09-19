@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20140918072352) do
   enable_extension "plpgsql"
 
   create_table "consonants", force: true do |t|
-    t.string "char",       null: false
-    t.string "char_class", null: false
+    t.string "consonant",       null: false
+    t.string "consonant_class", null: false
   end
 
 end

@@ -1,14 +1,12 @@
 // Variables
-$consonant_width: 60px;
-$consonants_per_line: 11;
+$consonant_width: 70px;
 $consonant_margin: 1px;
 $blue: #7ca4e5;
 $brown: #792c02;
 $light_orange: #f39500;
 $bold_orange: #ee5400;
 $beige: #e6bd7c;
-$app_width: $consonant_width * $consonants_per_line + $consonants_per_line * $consonant_margin * 2;
-$bucket_width: ($app_width - 15) / 3;
+$bucket_width: 300px;
 
 // Fonts
 @import url("http://fonts.googleapis.com/css?family=PT+Sans|Gloria+Hallelujah");
@@ -22,7 +20,7 @@ html, body, #container, #app {
 }
 
 body {
-  font-size: 16px;
+  font-size: 24px;
   font-family: 'PT Sans', sans-serif;
   line-height: 1.5;
   background: white;
@@ -39,12 +37,8 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 2em;
-  font-family: 'Gloria Hallelujah', cursive;
-}
-
-header p {
   font-size: 1em;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 header h1, header p {
@@ -57,14 +51,13 @@ header h1, header p {
 
 #instructions {
   text-align: center;
-  font-size: 1.5em;
   margin-top: 40px;
   margin: 20px;
 }
 
 #score {
   float: right;
-  width: $app_width / 2;
+  width: 300px;
   height: 50px;
   line-height: 50px;
   border-radius: 2px;
@@ -82,6 +75,7 @@ header h1, header p {
 
 #buckets, #low, #middle, #high {
   position: absolute;
+  z-index: -1;
 }
 
 #low {
@@ -110,7 +104,7 @@ header h1, header p {
   box-shadow: 0px 1px 1px $brown;
   vertical-align: middle;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2em;
   cursor: url(http://www.google.com/intl/en_ALL/mapfiles/openhand.cur) 4 4, move;
 }
 
@@ -133,10 +127,6 @@ header h1, header p {
   border-radius: 8px 8px 0 0;
 }
 
-.dragging {
-  opacity: 0;
-}
-
 .correct {
   color: $bold_orange;
 }
@@ -145,10 +135,10 @@ header h1, header p {
   color: $brown;
 }
 
-.clone_dragging {
+.grabbing {
   cursor: url(http://www.google.com/intl/en_ALL/mapfiles/closedhand.cur) 4 4, move;
 }
 
-.release {
+.grab {
   cursor: url(http://www.google.com/intl/en_ALL/mapfiles/openhand.cur) 4 4, move;
 }

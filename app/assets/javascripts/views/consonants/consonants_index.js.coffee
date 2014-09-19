@@ -16,7 +16,29 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
     this
 
   events:
-    'drop .bucket': 'handleDrop'
+    'drop .bucket': 'manageDrop'
+
+  setConsonantsToDroppable: ->
+      @$('.bucket').droppable
+        accept: '.consonant'
+
+  manageDrop: (e, ui) =>
+    @releaseOver(e)
+
+    consonant       = $(ui.draggable).text()
+    consonant_class = $(ui.draggable).data('consonant_class')
+    bucket          = e.target.id
+
+    if consonant_class == bucket
+      @correctAnswers.push consonant
+    else
+      @wrongAnswers.push
+        consonant: consonant
+        bucketChosen: bucket
+        correctAnswer: consonant_class
+
+    $(ui.draggable).trigger 'bucketed'
+    @updateScoreboard()
 
   releaseOver: (e) ->
     $(e.target).addClass 'release'
@@ -29,25 +51,6 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
     view = new GorGoesTheGai.Views.Consonant( model: consonant )
     @$('#main').append view.render().el
 
-  setConsonantsToDroppable: ->
-    @$('.bucket').droppable
-      accept: '.consonant'
-
-  handleDrop: (e, ui) =>
-    @releaseOver(e)
-    char      = $(ui.helper).html()
-    consclass = ui.helper.data.consclass
-    bucket    = e.target.id
-    if consclass == bucket
-      @correctAnswers.push char
-    else
-      @wrongAnswers.push
-        char: char
-        bucketChosen: bucket
-        correctAnswer: consclass
-    $(ui.draggable).trigger('bucketed')
-    @updateScoreboard()
-
   updateScoreboard: ->
     if @correctAnswers.length + @wrongAnswers.length < 44
       @$('#score').html("<span class='correct'>#{@correctAnswers.length}<span> <span class='wrong'>#{@wrongAnswers.length}</span>")
@@ -55,9 +58,9 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
       @reportResult()
 
   reportResult: ->
-    correct = "Congratulations! You got #{@correctAnswers.length} consonants right.<br/>"
+    correct = "<p>Congratulations! You got #{@correctAnswers.length} / 44 consonants right.<p/>"
     correct += @correctAnswers.join(' ')
-    correct += "<br/>Well done!"
+    correct += "<p>Well done!"
     wrong   = ''
     @wrongAnswers.forEach (element, index, array) ->
       wrong += "#{element['char']}: You thought it was #{element['bucketChosen']} class, but it was actually #{element['correctAnswer']}<br/>"

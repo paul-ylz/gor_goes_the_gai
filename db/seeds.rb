@@ -3,24 +3,24 @@ Consonant.delete_all
 
 high_class_consonants = %w(ข ฃ ฉ ฐ ถ ผ ฝ ศ ษ ส ห)
 high_class_consonants.each do |c|
-  Consonant.create char: c, char_class: 'high'
+  Consonant.create consonant: c, consonant_class: 'high'
 end
 
 middle_class_consonants = %w(ก จ ด ฎ ฏ ต บ ป อ)
 middle_class_consonants.each do |c|
-  Consonant.create char: c, char_class: 'middle'
+  Consonant.create consonant: c, consonant_class: 'middle'
 end
 
 low_class_consonants = %w(ง ณ น ม ญ ย ร ล ฬ ว ค ฅ ฆ ช ฌ ฑ ฒ ท ธ พ ภ ฟ ซ ฮ)
 low_class_consonants.each do |c|
-  Consonant.create char: c, char_class: 'low'
+  Consonant.create consonant: c, consonant_class: 'low'
 end
 
 puts 'High class consonants:'
-puts Consonant.where(char_class: 'high').length
+puts Consonant.where(consonant_class: 'high').length
 
 puts 'Middle class consonants:'
-puts Consonant.where(char_class: 'middle').length
+puts Consonant.where(consonant_class: 'middle').length
 
 puts 'Low class consonants:'
-puts Consonant.where(char_class: 'low').length
+puts Consonant.where(consonant_class: 'low').length

@@ -2,8 +2,12 @@
   <h1>Gor goes the Gai</h1>
   <div id="score"></div>
 </header>
+
+
 <div id="instructions">Put the consonants in the correct baskets</div>
+
 <section id="main"></section>
+
 <div id="buckets">
   <div id="low" class="bucket"><label>Low</label></div>
   <div id="middle" class="bucket"><label>Middle</label></div>

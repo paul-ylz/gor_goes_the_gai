@@ -1,1 +1,1 @@
-<%= @consonant.get('char') %>
+<%= @consonant.get('consonant') %>

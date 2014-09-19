@@ -6,20 +6,21 @@ class GorGoesTheGai.Views.Consonant extends Backbone.View
 
   className: 'consonant'
 
+  attributes: ->
+    'data-consonant_class': => @model.get('consonant_class')
+
   render: ->
     $(@el).html @template(consonant: @model)
-    $(@el).draggable
-      revert: 'invalid'
-      helper: 'clone'
-      start: @onStartDrag
-      stop: (e) -> $(e.target).removeClass 'dragging'
+    @setDraggable()
     this
 
   events:
     'bucketed': -> @remove()
 
-  onStartDrag: (e, ui) =>
-    $(e.target).addClass 'dragging'
-    $(ui.helper).addClass 'clone_dragging'
-    ui.helper.data.consclass = @model.get('char_class')
-    ui.helper.data.id = @id()
+  setDraggable: ->
+    $(@el).draggable
+      start: (e, ui) ->
+        ui.helper.addClass 'grabbing'
+      stop: (e, ui) ->
+        ui.helper.removeClass 'grabbing'
+      stack: '.consonant'
