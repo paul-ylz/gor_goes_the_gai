@@ -2,6 +2,8 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
 
   template: JST['consonants/index']
 
+  id: 'app'
+
   initialize: ->
     @correctAnswers = new Array
     @wrongAnswers   = new Array

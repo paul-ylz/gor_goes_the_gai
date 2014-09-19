@@ -8,7 +8,6 @@ $light_orange: #f39500;
 $bold_orange: #ee5400;
 $beige: #e6bd7c;
 $app_width: $consonant_width * $consonants_per_line + $consonants_per_line * $consonant_margin * 2;
-$bucket_margin: 1px;
 $bucket_width: ($app_width - 15) / 3;
 
 // Fonts
@@ -16,6 +15,12 @@ $bucket_width: ($app_width - 15) / 3;
 // Imports "PT Sans"(sans-serif) and "Gloria Hallelujah"(cursive)
 
 // Everything else
+html, body, #container, #app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   font-size: 16px;
   font-family: 'PT Sans', sans-serif;
@@ -28,30 +33,37 @@ body {
 }
 
 header {
-  width: 792px;
-  margin: 0 auto 20px auto;
-  border-bottom: 1px solid $bold_orange;
   color: $bold_orange;
+  overflow: hidden;
 }
 
-section {
-  clear: both;
-}
-
-h1 {
+header h1 {
+  margin: 0;
   font-size: 2em;
   font-family: 'Gloria Hallelujah', cursive;
-  text-align: center;
-  margin: 0;
 }
 
 header p {
-  font-size: 1.2em;
+  font-size: 1em;
+}
+
+header h1, header p {
+  float: left;
+}
+
+#main, #buckets, #instructions {
+  clear: both;
+}
+
+#instructions {
   text-align: center;
-  margin: 1% 0 0;
+  font-size: 1.5em;
+  margin-top: 40px;
+  margin: 20px;
 }
 
 #score {
+  float: right;
   width: $app_width / 2;
   height: 50px;
   line-height: 50px;
@@ -59,17 +71,29 @@ header p {
   box-shadow: 1px 1px 1px $blue;
   background: $beige;
   font-size: 1.5em;
-  margin: 20px auto;
   text-align: center;
+  margin-right: 20px;
 }
 
-#main, #buckets {
-  width: $app_width;
-  margin: 0 auto 40px auto;
+#buckets {
+  width: 100%;
+  bottom: 170px;
 }
 
-#main {
-  overflow: hidden;
+#buckets, #low, #middle, #high {
+  position: absolute;
+}
+
+#low {
+  left: 0;
+}
+
+#middle {
+  left: 50%;
+  margin-left: -($bucket_width / 2);
+}
+#high {
+  right: 20px;
 }
 
 .consonant {
@@ -97,7 +121,6 @@ header p {
   border-radius: 8px 8px 50px 50px;
   box-shadow: 1px 3px 3px $brown;
   display: inline-block;
-  margin: $bucket_margin;
   background-image: url('http://freestocktextures.com/images/small/fst_702cdacqm7s.jpg');
   background-color: $beige;
 }
