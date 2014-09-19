@@ -20,5 +20,6 @@ class GorGoesTheGai.Views.Consonant extends Backbone.View
 
   onStartDrag: (e, ui) =>
     $(e.target).addClass 'dragging'
+    $(ui.helper).addClass 'clone_dragging'
     ui.helper.data.consclass = @model.get('char_class')
     ui.helper.data.id = @id()

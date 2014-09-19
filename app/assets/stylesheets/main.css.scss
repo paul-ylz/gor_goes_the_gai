@@ -87,6 +87,7 @@ header p {
   vertical-align: middle;
   text-align: center;
   font-size: 2.5em;
+  cursor: url(http://www.google.com/intl/en_ALL/mapfiles/openhand.cur) 4 4, move;
 }
 
 .bucket {
@@ -119,4 +120,12 @@ header p {
 
 .wrong {
   color: $brown;
+}
+
+.clone_dragging {
+  cursor: url(http://www.google.com/intl/en_ALL/mapfiles/closedhand.cur) 4 4, move;
+}
+
+.release {
+  cursor: url(http://www.google.com/intl/en_ALL/mapfiles/openhand.cur) 4 4, move;
 }

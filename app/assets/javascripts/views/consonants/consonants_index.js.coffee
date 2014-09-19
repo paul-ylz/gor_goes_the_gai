@@ -13,6 +13,16 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
     @setConsonantsToDroppable()
     this
 
+  events:
+    'drop .bucket': 'handleDrop'
+
+  releaseOver: (e) ->
+    $(e.target).addClass 'release'
+    window.setTimeout(@removeReleaseOver, 500, $(e.target))
+
+  removeReleaseOver: ($el) ->
+    $el.removeClass 'release'
+
   appendConsonant: (consonant) =>
     view = new GorGoesTheGai.Views.Consonant( model: consonant )
     @$('#main').append view.render().el
@@ -20,9 +30,9 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
   setConsonantsToDroppable: ->
     @$('.bucket').droppable
       accept: '.consonant'
-      drop: @checkAnswer
 
-  checkAnswer: (e, ui) =>
+  handleDrop: (e, ui) =>
+    @releaseOver(e)
     char      = $(ui.helper).html()
     consclass = ui.helper.data.consclass
     bucket    = e.target.id
