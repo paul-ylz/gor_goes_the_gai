@@ -11,10 +11,14 @@ $app_width: $consonant_width * $consonants_per_line + $consonants_per_line * $co
 $bucket_margin: 1px;
 $bucket_width: ($app_width - 15) / 3;
 
+// Fonts
+@import url("http://fonts.googleapis.com/css?family=PT+Sans|Gloria+Hallelujah");
+// Imports "PT Sans"(sans-serif) and "Gloria Hallelujah"(cursive)
+
 // Everything else
 body {
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: 'PT Sans', sans-serif;
   line-height: 1.5;
   background: white;
 }
@@ -27,6 +31,7 @@ header {
   width: 792px;
   margin: 0 auto 20px auto;
   border-bottom: 1px solid $bold_orange;
+  color: $bold_orange;
 }
 
 section {
@@ -34,10 +39,16 @@ section {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
+  font-family: 'Gloria Hallelujah', cursive;
   text-align: center;
-  color: $bold_orange;
   margin: 0;
+}
+
+header p {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 1% 0 0;
 }
 
 #score {
@@ -55,6 +66,9 @@ h1 {
 #main, #buckets {
   width: $app_width;
   margin: 0 auto 40px auto;
+}
+
+#main {
   overflow: hidden;
 }
 
@@ -65,11 +79,11 @@ h1 {
   width: $consonant_width;
   height: $consonant_width;
   line-height: $consonant_width;
-  background: $blue;
+  background: white;
   color: $brown;
-  border: 1px solid $beige;
+  border: 1px solid $light_orange;
   border-radius: 50%;
-  box-shadow: 1px 1px 1px $beige;
+  box-shadow: 0px 1px 1px $brown;
   vertical-align: middle;
   text-align: center;
   font-size: 2.5em;
@@ -79,15 +93,20 @@ h1 {
   box-sizing: border-box;
   width: $bucket_width;
   height: 150px;
-  border-radius: 2px;
-  box-shadow: 1px 1px 1px $brown;
-  line-height: 150px;
+  border-radius: 8px 8px 50px 50px;
+  box-shadow: 1px 3px 3px $brown;
   display: inline-block;
   margin: $bucket_margin;
-  background: $beige;
-  font-size: 1.5em;
-  color: $brown;
+  background-image: url('http://freestocktextures.com/images/small/fst_702cdacqm7s.jpg');
+  background-color: $beige;
+}
+
+.bucket label {
+  display: block;
+  background: $bold_orange;
+  color: white;
   text-align: center;
+  border-radius: 8px 8px 0 0;
 }
 
 .dragging {

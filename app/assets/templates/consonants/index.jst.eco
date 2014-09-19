@@ -1,5 +1,6 @@
 <header>
   <h1>Gor goes the Gai</h1>
+  <p>Put the consonants in their correct classes</p>
 </header>
 <section>
   <div id="score"></div>
@@ -7,8 +8,8 @@
 <section>
   <div id="main"></div>
 </section>
-<section id="buckets">
-  <div id="low" class="bucket">Low class bucket</div>
-  <div id="middle" class="bucket">Middle class bucket</div>
-  <div id="high" class="bucket">High class bucket</div>
-</section>
+<div id="buckets">
+  <div id="low" class="bucket"><label>Low</label></div>
+  <div id="middle" class="bucket"><label>Middle</label></div>
+  <div id="high" class="bucket"><label>High</label></div>
+</div>
