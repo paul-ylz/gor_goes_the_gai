@@ -5,6 +5,7 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
   render: ->
     $(@el).html @template()
     @collection.each @appendConsonant
+    @$('#low_class').droppable( accept: '.consonant' )
     this
 
   appendConsonant: (consonant) =>

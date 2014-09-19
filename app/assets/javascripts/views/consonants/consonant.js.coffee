@@ -4,10 +4,9 @@ class GorGoesTheGai.Views.Consonant extends Backbone.View
 
   id: -> 'consonant_' + @model.get('id')
 
-  attributes:
-    'draggable': true
-    'class': 'consonant'
+  className: 'consonant'
 
   render: ->
     $(@el).html @template( consonant: @model )
+    $(@el).draggable()
     this
