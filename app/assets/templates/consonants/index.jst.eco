@@ -2,10 +2,13 @@
   <h1>Gor goes the Gai</h1>
 </header>
 <section>
-  <div id="unsorted_consonants"></div>
+  <div id="score"></div>
+</section>
+<section>
+  <div id="main"></div>
 </section>
 <section id="buckets">
-  <div id="low_class" class="bucket">Low class bucket</div>
-  <div id="middle_class" class="bucket">Middle class bucket</div>
-  <div id="high_class" class="bucket">High class bucket</div>
+  <div id="low" class="bucket">Low class bucket</div>
+  <div id="middle" class="bucket">Middle class bucket</div>
+  <div id="high" class="bucket">High class bucket</div>
 </section>

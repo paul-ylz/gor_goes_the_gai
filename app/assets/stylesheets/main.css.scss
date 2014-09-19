@@ -10,9 +10,11 @@ $beige: #e6bd7c;
 $app_width: $consonant_width * $consonants_per_line + $consonants_per_line * $consonant_margin * 2;
 $bucket_margin: 1px;
 $bucket_width: ($app_width - 15) / 3;
+
 // Everything else
 body {
   font-size: 16px;
+  font-family: sans-serif;
   line-height: 1.5;
   background: white;
 }
@@ -33,13 +35,24 @@ section {
 
 h1 {
   font-size: 3em;
-  font-family: arial;
   text-align: center;
   color: $bold_orange;
   margin: 0;
 }
 
-#unsorted_consonants, #buckets {
+#score {
+  width: $app_width / 2;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px $blue;
+  background: $beige;
+  font-size: 1.5em;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#main, #buckets {
   width: $app_width;
   margin: 0 auto 40px auto;
   overflow: hidden;
@@ -72,9 +85,19 @@ h1 {
   display: inline-block;
   margin: $bucket_margin;
   background: $beige;
-  font-family: sans-serif;
   font-size: 1.5em;
   color: $brown;
   text-align: center;
-  position: relative
+}
+
+.dragging {
+  opacity: 0;
+}
+
+.correct {
+  color: $bold_orange;
+}
+
+.wrong {
+  color: $brown;
 }
