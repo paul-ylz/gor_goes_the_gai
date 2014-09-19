@@ -8,6 +8,7 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
 
   render: ->
     $(@el).html @template()
+    @collection.reset @collection.shuffle()
     @collection.each @appendConsonant
     @setConsonantsToDroppable()
     this
