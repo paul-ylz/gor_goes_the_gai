@@ -58,11 +58,9 @@ class GorGoesTheGai.Views.ConsonantsIndex extends Backbone.View
       @reportResult()
 
   reportResult: ->
-    correct = "<p>Congratulations! You got #{@correctAnswers.length} / 44 consonants right.<p/>"
-    correct += @correctAnswers.join(' ')
-    correct += "<p>Well done!"
+    correct = "<p>Congratulations! You got " + @correctAnswers.length + " / 44 consonants right.</p>" + "<p>#{@correctAnswers.join(' ')}</p>" + "<p>Well done!</p>"
     wrong   = ''
     @wrongAnswers.forEach (element, index, array) ->
-      wrong += "#{element['char']}: You thought it was #{element['bucketChosen']} class, but it was actually #{element['correctAnswer']}<br/>"
+      wrong += "#{element['consonant']}: You thought it was #{element['bucketChosen']} class, but it was actually #{element['correctAnswer']}<br/>"
     @$('#main').append correct
     @$('#main').append wrong

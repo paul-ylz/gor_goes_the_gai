@@ -20,6 +20,7 @@ html, body, #container, #app {
 }
 
 body {
+  color: $brown;
   font-size: 24px;
   font-family: 'PT Sans', sans-serif;
   line-height: 1.5;
@@ -33,6 +34,8 @@ body {
 header {
   color: $bold_orange;
   overflow: hidden;
+  padding: 10px;
+  box-shadow: 0 1px 5px $light_orange;
 }
 
 header h1 {
